@@ -49,6 +49,16 @@ class MoviesController < ApplicationController
   def edit
     @movie = Movie.find params[:id]
   end
+  
+  def find_same_director
+    @movie = Movie.find params[:id]
+    if @movie.director.empty? or @movie.director.nil?
+      flash[:notice]=%Q{'#{@movie.title}' has no director info}
+      redirect_to movies_path
+    else
+      @movies_by_same_director = Movie.get_movies_by_same_dir(@movie.director)
+    end
+  end
 
   def update
     @movie = Movie.find params[:id]

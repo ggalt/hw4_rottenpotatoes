@@ -15,7 +15,9 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'ZenTest'
   gem 'simplecov'
+  # gem 'multi_json', "1.0.4"
 end
 group :production do
   gem 'pg'
