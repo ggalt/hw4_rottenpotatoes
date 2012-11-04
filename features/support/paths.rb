@@ -37,7 +37,8 @@ module NavigationHelpers
     when /^the Similar Movies page for "(.*)"/
       begin
         movie_found = Movie.find(:first, :conditions => {:title => $1})
-        %Q{/movies/#{movie_found.id}/find_same_director}
+#        %Q{/movies/#{movie_found.id}/find_same_director}
+        find_same_director_path(movie_found)
       end
       
     else
